@@ -9,14 +9,19 @@ import { Router } from "@angular/router";
 export class LoginComponent {
   username = "";
   password = "";
-  error = "";
+  errorMessage = "";
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
+  login() {
     this.authService.login(this.username, this.password).subscribe({
-      next: () => this.router.navigate(["/pages"]),
-      error: () => (this.error = "Login failed. Check your credentials."),
+      next: () => {
+        this.errorMessage = "";
+        this.router.navigate(["/pages"]); // or your dashboard route
+      },
+      error: (err) => {
+        this.errorMessage = "Login failed. Please check your credentials.";
+      },
     });
   }
 }

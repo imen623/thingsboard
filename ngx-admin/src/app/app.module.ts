@@ -20,12 +20,12 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from "@nebular/theme";
-import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    FormsModule,
+    CommonModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
